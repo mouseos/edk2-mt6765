@@ -23,14 +23,12 @@ jobs:
         ls
         pwd
         chmod +x ./firstrun.sh ./build.sh
-      working-directory: edk2
+        
     - name: Run firstrun.sh
       run: ./firstrun.sh
-      working-directory: edk2
 
     - name: Run build.sh
       run: ./build.sh
-      working-directory: edk2
 
     - name: Upload boot-uefi.img artifact
       uses: actions/upload-artifact@v3
