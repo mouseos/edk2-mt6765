@@ -12,22 +12,28 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
+    - name: Clone EDK2 repository
+      run: mkdir build
 
+    - name: Clone EDK2-mt6765 repository
+      run: git clone https://github.com/mouseos/edk2-mt6765
+      
     - name: Clone EDK2 repository
       run: git clone https://github.com/tianocore/edk2 --recursive -b edk2-stable202302
 
     - name: Clone EDK2 Platforms repository
       run: git clone https://github.com/tianocore/edk2-platforms.git
-    - name: Build
-      run: |
-        ls
-        pwd
-        chmod +x ./firstrun.sh ./build.sh
-        ./firstrun.sh
-        ./build.sh
+      
+    - name: Run firstrun.sh
+      run: chmod +x ./firstrun.sh && ./firstrun.sh
+      working-directory: edk2-mt6765
 
+    - name: Run build.sh
+      run: chmod +x ./build.sh && ./build.sh
+      working-directory: edk2-mt6765
+      
     - name: Upload boot-uefi.img artifact
       uses: actions/upload-artifact@v3
       with:
         name: boot-uefi-img
-        path: edk2/boot-uefi.img 
+        path: edk2/boot-uefi.img  # Adjust this path based on where the img file is generated
