@@ -16,6 +16,6 @@ mkbootimg \
 	--second_offset 0x00e88000 \
 	--tags_offset 0x07808000 \
 	--dtb_offset 0x07808000 \
-	--header_version 2 \
+	--header_version 1 \
 	--dtb blobs/dtb \
 	-o boot-uefi.img
