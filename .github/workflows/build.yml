@@ -18,17 +18,13 @@ jobs:
 
     - name: Clone EDK2 Platforms repository
       run: git clone https://github.com/tianocore/edk2-platforms.git
-    - name: Make scripts executable
+    - name: Build
       run: |
         ls
         pwd
         chmod +x ./firstrun.sh ./build.sh
-        
-    - name: Run firstrun.sh
-      run: ./firstrun.sh
-
-    - name: Run build.sh
-      run: ./build.sh
+        ./firstrun.sh
+        ./build.sh
 
     - name: Upload boot-uefi.img artifact
       uses: actions/upload-artifact@v3
