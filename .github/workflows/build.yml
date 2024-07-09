@@ -1,6 +1,6 @@
 name: Build EDK2
 
-on: 
+on:
   workflow_dispatch:
 
 jobs:
@@ -8,26 +8,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-    - name: Install build tools
-      run: sudo apt install build-essential uuid-dev iasl git  nasm  python-is-python3 g++-aarch64-linux-gnu android-tools-mkbootimg
-    - name: Clone EDK2 repository
-      run: git clone https://github.com/tianocore/edk2 --recursive -b edk2-stable202302
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Install build tools
+        run: sudo apt install build-essential uuid-dev iasl git  nasm  python-is-python3 g++-aarch64-linux-gnu android-tools-mkbootimg
+      - name: Clone EDK2 repository
+        run: git clone https://github.com/tianocore/edk2 --recursive -b edk2-stable202302
 
-    - name: Clone EDK2 Platforms repository
-      run: git clone https://github.com/tianocore/edk2-platforms.git
-      
-    - name: Run firstrun.sh
-      run: |
-        cp -r edk2* ../
-        chmod +x ./firstrun.sh && ./firstrun.sh
+      - name: Clone EDK2 Platforms repository
+        run: git clone https://github.com/tianocore/edk2-platforms.git
 
-    - name: Run build.sh
-      run: chmod +x ./build.sh && ./build.sh
-      
-    - name: Upload boot-uefi.img artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: boot-uefi-mt6765.img
-        path: boot-uefi.img  # Adjust this path based on where the img file is generated
+      - name: Run firstrun.sh
+        run: |
+          cp -r edk2* ../
+          chmod +x ./firstrun.sh && ./firstrun.sh
+
+      - name: Run build.sh
+        run: chmod +x ./build.sh && ./build.sh
+
+      - name: Upload boot-uefi.img artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: boot-uefi-mt8168-wip.img
+          path: boot-uefi.img # Adjust this path based on where the img file is generated
