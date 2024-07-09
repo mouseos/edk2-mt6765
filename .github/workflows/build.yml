@@ -21,7 +21,7 @@ jobs:
       
     - name: Run firstrun.sh
       run: |
-        cp -r edk2*
+        cp -r edk2* ../
         chmod +x ./firstrun.sh && ./firstrun.sh
 
     - name: Run build.sh
