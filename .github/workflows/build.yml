@@ -25,7 +25,7 @@ jobs:
       run: git clone https://github.com/tianocore/edk2-platforms.git
       
     - name: Run firstrun.sh
-      run: chmod +x ./firstrun.sh && ./firstrun.sh
+      run: ls && pwd && chmod +x ./firstrun.sh && ./firstrun.sh
       working-directory: edk2-mt6765
 
     - name: Run build.sh
