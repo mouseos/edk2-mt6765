@@ -12,7 +12,8 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
-      
+    - name: Install build tools
+      run: sudo apt install build-essential uuid-dev iasl git  nasm  python-is-python3
     - name: Clone EDK2 repository
       run: git clone https://github.com/tianocore/edk2 --recursive -b edk2-stable202302
 
