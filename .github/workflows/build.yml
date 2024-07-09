@@ -1,0 +1,34 @@
+name: Build EDK2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Clone EDK2 repository
+      run: git clone https://github.com/tianocore/edk2 --recursive -b edk2-stable202302
+
+    - name: Clone EDK2 Platforms repository
+      run: git clone https://github.com/tianocore/edk2-platforms.git
+
+    - name: Run firstrun.sh
+      run: ./firstrun.sh
+      working-directory: edk2
+
+    - name: Run build.sh
+      run: ./build.sh
+      working-directory: edk2
+
+    - name: Upload boot-uefi.img artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: boot-uefi-img
+        path: edk2/boot-uefi.img 
