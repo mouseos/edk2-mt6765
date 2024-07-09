@@ -111,8 +111,8 @@
   #
   # ARM General Interrupt Controller
   #
-  gArmTokenSpaceGuid.PcdGicDistributorBase|0x0c000000 //fdtから抽出
-  gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x00 ////fdtから抽出
+  gArmTokenSpaceGuid.PcdGicDistributorBase|0x0c000000 #fdtから抽出
+  gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x00 #fdtから抽出
 
   gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|0x12
   gArmTokenSpaceGuid.PcdArmArchTimerVirtIntrNum|0x13
