@@ -31,5 +31,5 @@ jobs:
     - name: Upload boot-uefi.img artifact
       uses: actions/upload-artifact@v3
       with:
-        name: boot-uefi-img
-        path: edk2/boot-uefi.img  # Adjust this path based on where the img file is generated
+        name: boot-uefi-mt6765.img
+        path: boot-uefi.img  # Adjust this path based on where the img file is generated
