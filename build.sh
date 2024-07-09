@@ -3,8 +3,8 @@
 set -e
 . build_common.sh
 ./build_bootshim.sh
-GCC5_AARCH64_PREFIX=aarch64-linux-gnu- build -j$(nproc) -s -n 0 -a AARCH64 -t GCC5 -p MT6765Pkg/Devices/roo.dsc
-cat BootShim/BootShim.bin workspace/Build/MT6765Pkg/DEBUG_GCC5/FV/MT6765PKG_UEFI.fd > workspace/UEFI
+GCC5_AARCH64_PREFIX=aarch64-linux-gnu- build -j$(nproc) -s -n 0 -a AARCH64 -t GCC5 -p MT8168Pkg/Devices/ctx.dsc
+cat BootShim/BootShim.bin workspace/Build/MT8168Pkg/DEBUG_GCC5/FV/MT8168Pkg_UEFI.fd > workspace/UEFI
 gzip -f workspace/UEFI
 mkbootimg \
 	--cmdline "bootopt=64S3,32N2,64N2" \
