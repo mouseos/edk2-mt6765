@@ -21,12 +21,7 @@ jobs:
       
     - name: Run firstrun.sh
       run: |
-        ls
-        pwd
-        echo "ls ../"
-        ls ../
-        echo "ls ../edk2"
-        ls ../edk2
+        cp -r edk2*
         chmod +x ./firstrun.sh && ./firstrun.sh
 
     - name: Run build.sh
