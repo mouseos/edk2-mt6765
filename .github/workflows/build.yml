@@ -20,7 +20,14 @@ jobs:
       run: git clone https://github.com/tianocore/edk2-platforms.git
       
     - name: Run firstrun.sh
-      run: chmod +x ./firstrun.sh && ./firstrun.sh
+      run: |
+        ls
+        pwd
+        echo "ls ../"
+        ls ../
+        echo "ls ../edk2"
+        ls ../edk2
+        chmod +x ./firstrun.sh && ./firstrun.sh
 
     - name: Run build.sh
       run: chmod +x ./build.sh && ./build.sh
