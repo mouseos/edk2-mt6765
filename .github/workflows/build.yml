@@ -18,7 +18,12 @@ jobs:
 
     - name: Clone EDK2 Platforms repository
       run: git clone https://github.com/tianocore/edk2-platforms.git
-
+    - name: Make scripts executable
+      run: |
+        ls
+        pwd
+        chmod +x ./firstrun.sh ./build.sh
+      working-directory: edk2
     - name: Run firstrun.sh
       run: ./firstrun.sh
       working-directory: edk2
