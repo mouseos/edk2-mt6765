@@ -12,11 +12,6 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
-    - name: Clone EDK2 repository
-      run: mkdir build
-
-    - name: Clone EDK2-mt6765 repository
-      run: git clone https://github.com/mouseos/edk2-mt6765
       
     - name: Clone EDK2 repository
       run: git clone https://github.com/tianocore/edk2 --recursive -b edk2-stable202302
@@ -25,12 +20,10 @@ jobs:
       run: git clone https://github.com/tianocore/edk2-platforms.git
       
     - name: Run firstrun.sh
-      run: ls && pwd && chmod +x ./firstrun.sh && ./firstrun.sh
-      working-directory: edk2-mt6765
+      run: chmod +x ./firstrun.sh && ./firstrun.sh
 
     - name: Run build.sh
       run: chmod +x ./build.sh && ./build.sh
-      working-directory: edk2-mt6765
       
     - name: Upload boot-uefi.img artifact
       uses: actions/upload-artifact@v3
