@@ -12,10 +12,11 @@ mkbootimg \
 	--ramdisk blobs/initramfs \
 	--base 0x40078000 \
 	--kernel_offset 0x00008000 \
-	--ramdisk_offset 0x11a88000 \
+	--ramdisk_offset 0x14f88000 \
 	--second_offset 0x00e88000 \
-	--tags_offset 0x07808000 \
+	--tags_offset 0x13f88000 \
 	--dtb_offset 0x07808000 \
 	--header_version 1 \
 	--dtb blobs/dtb \
 	-o boot-uefi.img
+# stock recovery.imgから取得したオフセット値
