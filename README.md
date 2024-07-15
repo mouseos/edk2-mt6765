@@ -1,9 +1,5 @@
 # Status
-Boots to UEFI Shell
-
-SimpleFbDxe is broken due to weird mtk fb, while FrameBufferSerialLib works fine
-
-UART works too, but for it, you must first disable FrameBufferSerialLib in MT6765Pkg.dsc
+Not working 
 
 # Building
 First, clone EDK2:
